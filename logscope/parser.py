@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 @dataclass(frozen=True)
@@ -21,7 +21,10 @@ def parse_timestamp(value: str) -> datetime:
     normalized = value.strip()
     if normalized.endswith("Z"):
         normalized = f"{normalized[:-1]}+00:00"
-    return datetime.fromisoformat(normalized)
+    timestamp = datetime.fromisoformat(normalized)
+    if timestamp.tzinfo is not None:
+        return timestamp.astimezone(timezone.utc).replace(tzinfo=None)
+    return timestamp
 
 
 def normalize_level(value: str) -> str:

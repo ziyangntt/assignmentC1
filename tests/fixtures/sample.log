@@ -1,0 +1,6 @@
+2026-10-01 09:00:00 INFO Service started
+2026-10-01 09:01:00 ERROR Connection refused
+malformed line
+2026-10-01T09:02:00Z WARNING Cache miss
+2026-10-01 09:03:00 FATAL Connection refused
+2026-10-01 09:04:00 DEBUG Diagnostic detail

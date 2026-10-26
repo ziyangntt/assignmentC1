@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime
 
 from logscope.parser import is_error_level, normalize_level, parse_line, parse_timestamp
 
@@ -16,7 +16,7 @@ def test_parse_line_accepts_iso_timestamp_and_offset() -> None:
     entry = parse_line("2026-10-01T09:03:12Z warning Cache miss")
 
     assert entry is not None
-    assert entry.timestamp == datetime(2026, 10, 1, 9, 3, 12, tzinfo=timezone.utc)
+    assert entry.timestamp == datetime(2026, 10, 1, 9, 3, 12)
     assert entry.level == "WARN"
     assert entry.message == "Cache miss"
 
@@ -43,4 +43,4 @@ def test_level_normalization_and_error_detection() -> None:
 
 
 def test_parse_timestamp_accepts_z_suffix() -> None:
-    assert parse_timestamp("2026-10-01T09:03:12Z") == datetime(2026, 10, 1, 9, 3, 12, tzinfo=timezone.utc)
+    assert parse_timestamp("2026-10-01T09:03:12Z") == datetime(2026, 10, 1, 9, 3, 12)
