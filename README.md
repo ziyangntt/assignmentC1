@@ -68,4 +68,3 @@ The implementation is delivered in the following order. Each step must be comple
 - Keep malformed log lines non-fatal.
 - Preserve a single pass per command wherever the specification permits.
 - Follow the exact JSON contracts and exit-code behavior in `SPEC.md`.
-
