@@ -79,6 +79,12 @@ README.md
 
 ## Testing expectations
 
+- Implement in this order: parser, summary, timeline, grep, then shared output
+  formats and CLI wiring.
+- After each implementation stage, run `pytest -q` and resolve failures before
+  continuing.
+- When commits are requested, create one focused commit after each verified
+  stage; do not commit unverified work.
 - After any change to `parser.py`, `timeutil.py`, or a command module, run
   `pytest -q` before considering the task done.
 - When adding a new parsing edge case, add a corresponding line to

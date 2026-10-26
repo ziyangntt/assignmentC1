@@ -150,3 +150,10 @@ fenced code block for the timeline bar chart).
   whole file).
 - A fixture log file with a deliberate mix of well-formed and malformed lines
   used across `summary`, `timeline`, and `grep` tests.
+
+## 10. Delivery sequence
+
+Implement the project in this order: parser, summary, timeline, grep, then
+shared output formats and CLI wiring. After each stage, run `pytest -q` and
+resolve failures before proceeding. Create one focused commit for each verified
+stage when commits are requested.
